@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 12d185e6aa797374499df58ed0d5fe2c
-timeCreated: 1507114634
+guid: 5bcefc315c5387c4e9c13f818b87726e
+timeCreated: 1507134133
 licenseType: Pro
 ModelImporter:
   serializedVersion: 21
@@ -88,10 +88,10 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
-    importBlendShapes: 1
+    importBlendShapes: 0
     importCameras: 1
     importLights: 1
-    swapUVChannels: 0
+    swapUVChannels: 1
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
@@ -107,7 +107,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -295,23 +295,23 @@ ModelImporter:
     - name: ArmUpper_L
       parentName: Shoulder_L
       position: {x: -0.13674799, y: 0, z: 0.00000014171005}
-      rotation: {x: 0.0063970503, y: 0.096688405, z: 0.106400065, w: 0.9895905}
-      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999994}
+      rotation: {x: 0.014762219, y: 0.09618489, z: 0.10544986, w: 0.989652}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
     - name: ArmLower_L
       parentName: ArmUpper_L
-      position: {x: -0.23108429, y: 0.000000020489097, z: -0.000000006810296}
-      rotation: {x: -0.19509321, y: 0.011623863, z: 0.04035781, w: 0.9798851}
-      scale: {x: 0.99999964, y: 1, z: 1}
+      position: {x: -0.2310844, y: 0.000000006519258, z: 0.000000005675247}
+      rotation: {x: -0.003252327, y: 0.008094924, z: 0.035091035, w: 0.9993461}
+      scale: {x: 1, y: 1.0000001, z: 1}
     - name: Hand_L
       parentName: ArmLower_L
-      position: {x: -0.23853737, y: 0.000000063329935, z: -0.00000013061799}
-      rotation: {x: 0.023299057, y: 0.095571056, z: -0.026688255, w: 0.99479204}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+      position: {x: -0.23853722, y: 0.000000031664968, z: -0.000000011852535}
+      rotation: {x: 0.02227114, y: 0.08028044, z: -0.015569359, w: 0.99640185}
+      scale: {x: 1.0000001, y: 1, z: 1}
     - name: Fingers_L
       parentName: Hand_L
-      position: {x: -0.114891306, y: 0.000000018830178, z: 0.000000039377483}
-      rotation: {x: -0.07174996, y: -0.29137585, z: 0.039427105, w: 0.95309895}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+      position: {x: -0.11489123, y: 0.000000011175871, z: 0.00000011125303}
+      rotation: {x: -0.07174997, y: -0.29137594, z: 0.039427076, w: 0.95309895}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
     - name: Shoulder_R
       parentName: BackUpper
       position: {x: -0.2073129, y: 0.060000025, z: 0.03494926}
