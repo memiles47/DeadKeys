@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1440
     height: 877
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 521}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -560,11 +560,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.07632914, y: -0.9175863, z: 0.2152319, w: 0.32540655}
     speed: 2
-    m_Value: {x: 0.07632895, y: -0.917584, z: 0.21523136, w: 0.32540575}
+    m_Value: {x: -0.07632895, y: 0.917584, z: -0.21523136, w: -0.32540575}
   m_Size:
-    m_Target: 33.687332
+    m_Target: 33.991
     speed: 2
-    m_Value: 33.687332
+    m_Value: 33.991
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -603,10 +603,10 @@ MonoBehaviour:
     width: 407
     height: 250
   m_TreeViewState:
-    scrollPos: {x: 0, y: 343}
-    m_SelectedIDs: 2a8effff
-    m_LastClickedID: -29142
-    m_ExpandedIDs: 8efbffff000000001e28000072280000ac280000
+    scrollPos: {x: 0, y: 87}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 8efbffff000000001e28000078280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
