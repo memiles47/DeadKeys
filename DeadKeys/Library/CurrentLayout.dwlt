@@ -89,7 +89,7 @@ MonoBehaviour:
   m_MinSize: {x: 583, y: 442}
   m_MaxSize: {x: 12008, y: 8042}
   vertical: 0
-  controlID: 59
+  controlID: 9
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 442}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 1
-  controlID: 34
+  controlID: 10
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -177,8 +177,8 @@ MonoBehaviour:
     y: 0
     width: 1084
     height: 606
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -227,8 +227,8 @@ MonoBehaviour:
     y: 0
     width: 202
     height: 221
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -490,7 +490,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 95.261536}
     m_SelectedIDs: f6270000
     m_LastClickedID: 10230
-    m_ExpandedIDs: 00000000642e0000722e0000d82e0000122f0000
+    m_ExpandedIDs: 0000000086270000b02700006e280000e4280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -518,7 +518,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000642e0000722e0000d82e0000122f0000
+    m_ExpandedIDs: 0000000086270000b02700006e280000e4280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -710,9 +710,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.26295584, y: -0.27314162, z: 0.07789551, w: -0.9220547}
   m_Size:
-    m_Target: 40.35184
+    m_Target: 40.65184
     speed: 2
-    m_Value: 40.35184
+    m_Value: 40.65184
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -752,9 +752,9 @@ MonoBehaviour:
     height: 200
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a82f0000
-    m_LastClickedID: 12200
-    m_ExpandedIDs: b0f3ffff00000000a22f0000d22f0000
+    m_SelectedIDs: 3e2a0000
+    m_LastClickedID: 10814
+    m_ExpandedIDs: a6fbffff00000000222a0000522a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
