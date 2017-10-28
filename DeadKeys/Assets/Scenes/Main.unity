@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4575694}
   m_Layer: 0
   m_Name: Waypoint-E
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 112450203}
   m_Layer: 0
   m_Name: Waypoint-B
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 408911570}
   m_Layer: 0
   m_Name: CameraPath
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 498015979}
   m_Layer: 0
   m_Name: Waypoint-F
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 676771897}
   m_Layer: 0
   m_Name: Waypoint-A
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2121,7 +2121,7 @@ GameObject:
   - component: {fileID: 1670303824}
   m_Layer: 0
   m_Name: Waypoint-C
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3309,7 +3309,7 @@ GameObject:
   - component: {fileID: 2099880458}
   m_Layer: 0
   m_Name: Waypoint-D
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
