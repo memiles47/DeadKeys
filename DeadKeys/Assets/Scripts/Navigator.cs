@@ -1,9 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class Navigator : MonoBehaviour
 {
+    // Reference to current camera position
+    public int CurrentNode = 0;
+    private Animator ThisAnimator = null;
+    private int AnimStateHash = Animator.StringToHash("NavState");
+
+    // Reference to navigator button
+    private Button NavigatorButton = null;
+
     //Reference to singleton instance
     public static Navigator ThisInstance
     {
@@ -33,12 +43,32 @@ public class Navigator : MonoBehaviour
     }
 
     private static Navigator mThisInstance = null;
-    private int AnimStateHash = Animator.StringToHash("NavState");
 
     void Awake()
     {
         ThisInstance = this;
         ThisAnimator = GetComponent<Animator>();
+        NavigatorButton = GameObject.FindGameObjectWithTag("NavigatorButton").GetComponent<Button>();
+    }
+
+    public void Next()
+    {
+        ++CurrentNode;
+        ThisAnimator.SetInteger(AnimStateHash, CurrentNode);
+
+    }
+
+    public void Prev()
+    {
+        --CurrentNode;
+        ThisAnimator.SetInteger(AnimStateHash, CurrentNode);
+    }
+
+    // Show buttton if there are not remaining enemies
+    public void ShowMoveButton()
+    {
+        // To be defined
+        NavigatorButton.gameObject.SetActive(true);
     }
 
     // Use this for initialization
