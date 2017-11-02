@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WordList : MonoBehaviour
 {
     // Text asset featuring word list assignments
-    public TextAsset FileWordList = null;
+    public TextAsset FileWordList;
     public string[] Words;
+
+    private static WordList _mWl;
+
 
     // Members for Singleton
     public static WordList ThisInstance
@@ -14,33 +15,32 @@ public class WordList : MonoBehaviour
         get
         {
             // Get or create singleton instance
-            if (m_WL == null)
+            if (_mWl == null)
             {
-                GameObject GO = new GameObject("WordList");
-                ThisInstance = GO.AddComponent<WordList>();
+                GameObject go = new GameObject("WordList");
+                ThisInstance = go.AddComponent<WordList>();
             }
-            return m_WL;
+            return _mWl;
         }
 
         set
         {
             // If not null then we already have instance
-            if (m_WL != null)
+            if (_mWl != null)
             {
                 // If different, then remove duplicate immediately
-                if (m_WL.GetInstanceID() != value.GetInstanceID())
+                if (_mWl.GetInstanceID() != value.GetInstanceID())
                     DestroyImmediate(value.gameObject);
 
                 return;
             }
 
             // If new, then create new singleton instance
-            m_WL = value;
-            DontDestroyOnLoad(m_WL.gameObject);
+            _mWl = value;
+            DontDestroyOnLoad(_mWl.gameObject);
         }
     }
 
-    private static WordList m_WL = null;
 
     // Use this for initialization
     void Awake()
@@ -67,32 +67,22 @@ public class WordList : MonoBehaviour
     public static string CompareWords(string s1, string s2)
     {
         // Build resulting string
-        string Result = string.Empty;
+        var result = string.Empty;
 
         // Get shortest length
-        int ShortestLength = Mathf.Min(s1.Length, s2.Length);
+        var shortestLength = Mathf.Min(s1.Length, s2.Length);
 
         // Check for string match
-        for (int i = 0; i < ShortestLength; i++)
+        for (var i = 0; i < shortestLength; i++)
         {
             if (s1[i] != s2[i])
             {
-                return Result;
+                return result;
             }
-            Result += s1[i];
+            result += s1[i];
         }
 
         // Output result
-        return Result;
-    }
-
-    // Use this for initialization
-    void Start () {
-        
-    }
-    
-    // Update is called once per frame
-    void Update () {
-        
+        return result;
     }
 }
