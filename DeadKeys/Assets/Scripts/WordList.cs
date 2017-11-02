@@ -62,6 +62,30 @@ public class WordList : MonoBehaviour
         return Words[Random.Range(0, Words.Length)].ToLower();
     }
 
+    // Compare two strings and returns the extent of a match
+    // EG: s1 = "hello" and s2 = "helicopter" the result = "hel"
+    public static string CompareWords(string s1, string s2)
+    {
+        // Build resulting string
+        string Result = string.Empty;
+
+        // Get shortest length
+        int ShortestLength = Mathf.Min(s1.Length, s2.Length);
+
+        // Check for string match
+        for (int i = 0; i < ShortestLength; i++)
+        {
+            if (s1[i] != s2[i])
+            {
+                return Result;
+            }
+            Result += s1[i];
+        }
+
+        // Output result
+        return Result;
+    }
+
     // Use this for initialization
     void Start () {
         
