@@ -41,8 +41,6 @@ public class Typer : MonoBehaviour
     // This is called once per frame
     void Update()
     {
-        UpdateTyperText();
-
         // Update typed string
         if (Input.inputString.Length > 0)
         {
@@ -54,10 +52,11 @@ public class Typer : MonoBehaviour
     // Update enemy type event
     private void UpdateTyping()
     {
+        UpdateTyperText();
+
         // Update GUI Typer
         OnTypingChanged.Invoke();
         Reset();
-
     }
 
     // Reset typing and time
@@ -66,13 +65,14 @@ public class Typer : MonoBehaviour
         // Reset typing
         TypedWord = string.Empty;
 
+
         // Reset time
         ElapsedTime = 0.0f;
     }
 
     public void UpdateTyperText()
     {
-        TyperText.text = Input.inputString;
+        TyperText.text = Input.inputString.ToLower();
         ThisAS.clip = CombatSounds[Random.Range(0, CombatSounds.Length)];
     }
 }

@@ -20,16 +20,4 @@ public class UIHealth : MonoBehaviour
         // Update player health
         ThisTransform.sizeDelta = new Vector2(PlayerHealth.Value, ThisTransform.sizeDelta.y);
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-        
-    }
-    
-    // Update is called once per frame
-    void Update ()
-    {
-        UpdateHealth();
-    }
 }
