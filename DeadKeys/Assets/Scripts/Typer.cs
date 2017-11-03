@@ -41,6 +41,8 @@ public class Typer : MonoBehaviour
     // This is called once per frame
     void Update()
     {
+        UpdateTyperText();
+
         // Update typed string
         if (Input.inputString.Length > 0)
         {
