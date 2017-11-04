@@ -1,23 +1,25 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UIHealth : MonoBehaviour
+namespace Assets.Scripts
 {
-    private Health PlayerHealth;
-    private RectTransform ThisTransform;
-
-    // Use this for initialization
-    void Awake()
+    public class UIHealth : MonoBehaviour
     {
-        GameObject GO = GameObject.FindGameObjectWithTag("Player");
-        PlayerHealth = GO.GetComponent<Health>();
-        ThisTransform = GetComponent<RectTransform>();
-    }
+        private Health _playerHealth;
+        private RectTransform _thisTransform;
 
-    // Update is called once per frame
-    void UpdateHealth()
-    {
-        // Update player health
-        ThisTransform.sizeDelta = new Vector2(PlayerHealth.Value, ThisTransform.sizeDelta.y);
+        // Use this for initialization
+        void Awake()
+        {
+            var go = GameObject.FindGameObjectWithTag("Player");
+            _playerHealth = go.GetComponent<Health>();
+            _thisTransform = GetComponent<RectTransform>();
+        }
+
+        // Update is called once per frame
+        void UpdateHealth()
+        {
+            // Update player health
+            _thisTransform.sizeDelta = new Vector2(_playerHealth.Value, _thisTransform.sizeDelta.y);
+        }
     }
 }

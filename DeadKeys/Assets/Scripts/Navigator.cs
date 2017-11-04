@@ -1,72 +1,75 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Navigator : MonoBehaviour
+namespace Assets.Scripts
 {
-    // Reference to current camera position
-    public int CurrentNode;
-    private Animator _thisAnimator;
-    private int AnimStateHash = Animator.StringToHash("NavState");
-
-    // Reference to navigator button
-    private Button _navigatorButton;
-
-    private static Navigator _mThisInstance;
-
-
-    //Reference to singleton instance
-    public static Navigator ThisInstance
+    public class Navigator : MonoBehaviour
     {
-        get
+        // Reference to current camera position
+        public int CurrentNode;
+        private Animator _thisAnimator;
+        private int AnimStateHash = Animator.StringToHash("NavState");
+
+        // Reference to navigator button
+        private Button _navigatorButton;
+
+        private static Navigator _mThisInstance;
+
+
+        //Reference to singleton instance
+        public static Navigator ThisInstance
         {
-            //Get or create singleton instance
-            if (_mThisInstance == null)
+            get
             {
-                var go = new GameObject("Navigator");
-                _mThisInstance = go.AddComponent<Navigator>();
+                //Get or create singleton instance
+                if (_mThisInstance == null)
+                {
+                    var go = new GameObject("Navigator");
+                    _mThisInstance = go.AddComponent<Navigator>();
+                }
+                return _mThisInstance;
             }
-            return _mThisInstance;
+            set
+            {
+                //If not null then we already have instance
+                if (_mThisInstance != null)
+                {
+                    //If different, then remove duplicate immediatly
+                    if (_mThisInstance.GetInstanceID() != value.GetInstanceID())
+                        DestroyImmediate(value.gameObject);
+                    return;
+                }
+                //If new, then create new singleton instance
+                _mThisInstance = value;
+            }
         }
-        set
+
+
+        void Awake()
         {
-            //If not null then we already have instance
-            if (_mThisInstance != null)
-            {
-                //If different, then remove duplicate immediatly
-                if (_mThisInstance.GetInstanceID() != value.GetInstanceID())
-                DestroyImmediate(value.gameObject);
-                return;
-            }
-            //If new, then create new singleton instance
-            _mThisInstance = value;
+            ThisInstance = this;
+            _thisAnimator = GetComponent<Animator>();
+            _navigatorButton = GameObject.FindGameObjectWithTag("NavigatorButton").GetComponent<Button>();
         }
-    }
 
+        public void Next()
+        {
+            ++CurrentNode;
+            _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
 
-    void Awake()
-    {
-        ThisInstance = this;
-        _thisAnimator = GetComponent<Animator>();
-        _navigatorButton = GameObject.FindGameObjectWithTag("NavigatorButton").GetComponent<Button>();
-    }
+        }
 
-    public void Next()
-    {
-        ++CurrentNode;
-        _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
+        public void Prev()
+        {
+            --CurrentNode;
+            _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
+        }
 
-    }
-
-    public void Prev()
-    {
-        --CurrentNode;
-        _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
-    }
-
-    // Show buttton if there are not remaining enemies
-    public void ShowMoveButton()
-    {
-        // To be defined
-        _navigatorButton.gameObject.SetActive(true);
+        // Show buttton if there are no remaining enemies
+        public void ShowMoveButton()
+        {
+            // To be defined
+            _navigatorButton.gameObject.SetActive(true);
+        }
     }
 }
