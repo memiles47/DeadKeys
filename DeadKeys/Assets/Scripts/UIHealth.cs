@@ -16,7 +16,7 @@ namespace Assets.Scripts
         }
 
         // Update is called once per frame
-        void UpdateHealth()
+        public void UpdateHealth()
         {
             // Update player health
             _thisTransform.sizeDelta = new Vector2(_playerHealth.Value, _thisTransform.sizeDelta.y);
