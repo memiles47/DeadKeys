@@ -15,7 +15,7 @@ namespace Assets.Scripts
             _thisTransform = GetComponent<RectTransform>();
         }
 
-        // Update is called once per frame
+        // UpdateHealth is called when needed
         public void UpdateHealth()
         {
             // Update player health
