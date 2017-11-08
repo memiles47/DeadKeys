@@ -50,6 +50,7 @@ namespace Assets.Scripts
             ThisInstance = this;
             _thisAnimator = GetComponent<Animator>();
             _navigatorButton = GameObject.FindGameObjectWithTag("NavigatorButton").GetComponent<Button>();
+            _navigatorButton.gameObject.SetActive(false);
         }
 
         public void Next()
