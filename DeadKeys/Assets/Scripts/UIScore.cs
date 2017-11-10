@@ -21,6 +21,6 @@ public class UIScore : MonoBehaviour
 	void Update ()
 	{
 		DisplayScore = Mathf.Lerp(DisplayScore, GameManager.ThisInstance.Score, CatchUpSpeed = Time.deltaTime);
-		ThisText.text = "Score " + Mathf.CeilToInt(DisplayScore).ToString("D6");
+		ThisText.text = "Score: " + Mathf.CeilToInt(DisplayScore).ToString("D6");
 	}
 }
