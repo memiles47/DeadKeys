@@ -58,13 +58,19 @@ namespace Assets.Scripts
             _navigatorButton.gameObject.SetActive(false);
         }
 
+        void Update()
+        {
+            ShowMoveButton();
+        }
+
         public void Next()
         {
             // Reset typing
             Typer.TypedWord = string.Empty;
 
             ++CurrentNode;
-            _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
+            //_thisAnimator.SetInteger(AnimStateHash, CurrentNode);
+            _thisAnimator.SetInteger("NavState", CurrentNode);
 
         }
 
