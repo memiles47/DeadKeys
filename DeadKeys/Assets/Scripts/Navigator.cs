@@ -49,7 +49,6 @@ namespace Assets.Scripts
             }
         }
 
-
         void Awake()
         {
             ThisInstance = this;
