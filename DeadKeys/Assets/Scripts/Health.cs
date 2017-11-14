@@ -6,7 +6,8 @@ namespace Assets.Scripts
     public class Health : MonoBehaviour
     {
         [SerializeField]
-        [Range(0f, 100f)] public float _fValue = 50f;
+        [Range(0f, 100f)]
+        private float _fValue = 100f;
 
         //Events called on health change
         public UnityEvent OnHealthExpired;
