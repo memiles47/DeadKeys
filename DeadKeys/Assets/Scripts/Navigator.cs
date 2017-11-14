@@ -10,8 +10,8 @@ namespace Assets.Scripts
         // Reference to current camera position
         public int CurrentNode;
         private Animator _thisAnimator;
-        public int AnimStateHash = Animator.StringToHash("NavState");
-        public int AIEnemies = 0;
+        private int AnimStateHash = Animator.StringToHash("NavState");
+        private int AIEnemies = 0;
 
         // Reference to NPC die event
         public UnityEvent EnemyDie;
@@ -68,9 +68,7 @@ namespace Assets.Scripts
             Typer.TypedWord = string.Empty;
 
             ++CurrentNode;
-            //_thisAnimator.SetInteger(AnimStateHash, CurrentNode);
-            _thisAnimator.SetInteger("NavState", CurrentNode);
-
+            _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
         }
 
         public void Prev()
@@ -87,9 +85,8 @@ namespace Assets.Scripts
         {
             // To be defined
             if (AIEnemies > 0)
-            {
                 return;
-            }
+
             _navigatorButton.gameObject.SetActive(true);
         }
     }

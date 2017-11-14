@@ -7,7 +7,10 @@ namespace Assets.Scripts
     public class Typer : MonoBehaviour
     {
         // Reference to type word
-        public static string TypedWord;
+        public static string TypedWord = string.Empty;
+
+        // Reference to all enemies in level
+        //private AIEnemy[] Enemies;
 
         // Text object for showing type
         private Text _typerText;
@@ -40,6 +43,9 @@ namespace Assets.Scripts
         // This is called once per frame
         void Update()
         {
+            // Update Time
+            ElapsedTime += Time.deltaTime;
+
             // Update typed string
             if (Input.inputString.Length > 0)
             {
