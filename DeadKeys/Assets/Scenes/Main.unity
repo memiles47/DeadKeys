@@ -2712,6 +2712,17 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1059019578}
+        m_MethodName: UpdateHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ThrobPanel
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2106521991}
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -3553,22 +3564,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1865885675}
         m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  LogTest:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1865885674}
-        m_MethodName: LogEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
