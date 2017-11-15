@@ -50,7 +50,6 @@ namespace Assets.Scripts
         {
             // Update Time
             ElapsedTime += Time.deltaTime;
-            LogTest.Invoke();
 
             // Update typed string
             if (Input.inputString.Length > 0)
