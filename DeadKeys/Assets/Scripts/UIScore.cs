@@ -7,20 +7,21 @@ using UnityEngine.Events;
 public class UIScore : MonoBehaviour
 {
 	public float DisplayScore;
-	private Text ThisText;
+	private Text _thisText;
 	public float CatchUpSpeed = 1.0f;
+
 	public UnityEvent OnScoreChange;
 
 	// Use this for initialization
 	void Awake ()
 	{
-		ThisText = GetComponent<Text>();
+		_thisText = GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		DisplayScore = Mathf.Lerp(DisplayScore, GameManager.ThisInstance.Score, CatchUpSpeed = Time.deltaTime);
-		ThisText.text = "Score: " + Mathf.CeilToInt(DisplayScore).ToString("D6");
+		_thisText.text = "Score: " + Mathf.CeilToInt(DisplayScore).ToString("D6");
 	}
 }
