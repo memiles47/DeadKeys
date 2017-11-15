@@ -23,9 +23,6 @@ namespace Assets.Scripts
         // Typing changed event
         public UnityEvent OnTypingChanged;
 
-        // Testing my understanding
-        public UnityEvent LogTest;
-
         // Time elapsed since last reset
         public static float ElapsedTime = 0.0f;
 
@@ -84,11 +81,6 @@ namespace Assets.Scripts
         {
             _typerText.text = Input.inputString.ToLower();
             _thisAs.clip = CombatSounds[Random.Range(0, CombatSounds.Length)];
-        }
-
-        public void LogEvent()
-        {
-            Debug.Log("Update Happened");
         }
     }
 }
