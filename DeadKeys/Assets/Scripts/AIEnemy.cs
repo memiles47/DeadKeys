@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 
 public class AIEnemy : MonoBehaviour
 {
-	public enum Aistate
+	public enum AiState
 	{
 		IDLE = 0,
 		CHASE = 1,
@@ -14,9 +15,41 @@ public class AIEnemy : MonoBehaviour
 		DEAD = 3
 	};
 
-	[SerializeField] private Aistate _mActivateState = Aistate.IDLE;
+	[SerializeField] private AiState _mActivateState = AiState.IDLE;
 
-	public Aistate ActiveState
+	// Events
+	public UnityEvent OnStateChanged;
+	public UnityEvent OnIdleEnter;
+	public UnityEvent OnChaseEnter;
+	public UnityEvent OnAttackEnter;
+	public UnityEvent OnTypingChanged;
+	public UnityEvent OnTypingMatched;
+
+	// Component References
+	private Animator _thisAnimator;
+	private UnityEngine.AI.NavMeshAgent ThisAgent;
+	private Transform ThisTransform;
+
+	// Reference to player transform
+	private Transform PlayerTransform;
+
+	// Points for Enemy
+	public int ScorePoints = 10;
+
+	// Reference to Score Text
+	private UIScore ScoreText;
+
+	// Player Health Component
+	private Health PlayerHealth;
+
+	// Word Associated
+	public string AssocWord;
+	
+	// Extent of word match with associated word
+	public string MachedWord;
+
+
+	public AiState ActiveState
 	{
 		get { return _mActivateState; }
 		set
@@ -28,19 +61,19 @@ public class AIEnemy : MonoBehaviour
 			// Run coroutine associated with active state
 			switch (_mActivateState)
 			{
-				case Aistate.IDLE:
+				case AiState.IDLE:
 					StartCoroutine(StateIdle());
 					break;
 
-				case Aistate.CHASE:
+				case AiState.CHASE:
 					StartCoroutine(StateChase());
 					break;
 
-				case Aistate.ATTACK:
+				case AiState.ATTACK:
 					StartCoroutine(StateDead());
 					break;
 
-				case Aistate.DEAD:
+				case AiState.DEAD:
 					StartCoroutine(StateIdle());
 					break;
 			}
