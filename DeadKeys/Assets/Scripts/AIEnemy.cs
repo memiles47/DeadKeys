@@ -70,17 +70,44 @@ public class AIEnemy : MonoBehaviour
 					break;
 
 				case AiState.ATTACK:
-					StartCoroutine(StateDead());
+					StartCoroutine(StateAttack());
 					break;
 
 				case AiState.DEAD:
-					StartCoroutine(StateIdle());
+					StartCoroutine(StateDead());
 					break;
 			}
 			// Invoke state change event
 			OnStateChanged.Invoke();
 		}
 	}
+
+	// Events called on FSM changes
+	public IEnumerator StateIdle()
+	{
+		// Add Body Here
+		yield break;
+	}
+
+	public IEnumerator StateChase()
+	{
+		// Add Body Here
+		yield break;
+	}
+
+	public IEnumerator StateAttack()
+	{
+		// Add Body Here
+		yield break;
+	}
+
+	public IEnumerator StateDead()
+	{
+		// Add Body Here
+		yield break;
+	}
+
+
 
 	// Use this for initialization
 	void Start ()
