@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,117 +8,164 @@ using UnityEngine.UI;
 
 public class AIEnemy : MonoBehaviour
 {
-	public enum AiState
-	{
-		IDLE = 0,
-		CHASE = 1,
-		ATTACK = 2,
-		DEAD = 3
-	};
+    public enum AiState
+    {
+        IDLE = 0,
+        CHASE = 1,
+        ATTACK = 2,
+        DEAD = 3
+    };
 
-	[SerializeField] private AiState _mActivateState = AiState.IDLE;
+    [SerializeField] private AiState _mActivateState = AiState.IDLE;
 
-	// Events
-	public UnityEvent OnStateChanged;
-	public UnityEvent OnIdleEnter;
-	public UnityEvent OnChaseEnter;
-	public UnityEvent OnAttackEnter;
-	public UnityEvent OnTypingChanged;
-	public UnityEvent OnTypingMatched;
+    // Events
+    public UnityEvent OnStateChanged;
+    public UnityEvent OnIdleEnter;
+    public UnityEvent OnChaseEnter;
+    public UnityEvent OnAttackEnter;
+    public UnityEvent OnTypingChanged;
+    public UnityEvent OnTypingMatched;
 
-	// Component References
-	private Animator _thisAnimator;
-	private UnityEngine.AI.NavMeshAgent ThisAgent;
-	private Transform ThisTransform;
+    // Component References
+    private Animator _thisAnimator;
+    private UnityEngine.AI.NavMeshAgent _thisAgent;
+    private Transform _thisTransform;
 
-	// Reference to player transform
-	private Transform PlayerTransform;
+    // Reference to player transform
+    private Transform _playerTransform;
 
-	// Points for Enemy
-	public int ScorePoints = 10;
+    // Points for Enemy
+    public int ScorePoints = 10;
 
-	// Reference to Score Text
-	private UIScore ScoreText;
+    // Reference to Score Text
+    private UIScore _scoreText;
 
-	// Player Health Component
-	private Health PlayerHealth;
+    // Player Health Component
+    private Health _playerHealth;
 
-	// Word Associated
-	public string AssocWord;
-	
-	// Extent of word match with associated word
-	public string MachedWord;
+    // Word Associated
+    public string AssocWord = string.Empty;
+    
+    // Extent of word match with associated word
+    public string MachedWord = string.Empty;
+
+    // Amount of damage to deal on attack
+    public int AttackDamage = 10;
+
+    // Text component
+    private Text _nameTextComp;
+
+    // Acitve enemy count (how many enemies wandering at one time)
+    public static int ActiveEnemies;
+
+    // Sound to play on hit
+    public AudioSource HitSound;
+
+    public AiState ActiveState
+    {
+        get { return _mActivateState; }
+        set
+        {
+            // Stops any running coroutinges, if there are any
+            StopAllCoroutines();
+            _mActivateState = value;
+
+            // Run coroutine associated with active state
+            switch (_mActivateState)
+            {
+                case AiState.IDLE:
+                    StartCoroutine(StateIdle());
+                    break;
+
+                case AiState.CHASE:
+                    StartCoroutine(StateChase());
+                    break;
+
+                case AiState.ATTACK:
+                    StartCoroutine(StateAttack());
+                    break;
+
+                case AiState.DEAD:
+                    StartCoroutine(StateDead());
+                    break;
+            }
+            // Invoke state change event
+            OnStateChanged.Invoke();
+        }
+    }
+
+    // Events called on FSM changes
+    public IEnumerator StateIdle()
+    {
+        // Run Idle animation
+        _thisAnimator.SetInteger("AnimState", (int) ActiveState);
+
+        // While in idle state
+        while (ActiveState == AiState.IDLE)
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator StateChase()
+    {
+        // Run chase animation
+        _thisAnimator.SetInteger("AnimState", (int) ActiveState);
+
+        // Set destination
+        _thisAgent.SetDestination(_playerTransform.position);
+
+        // Wait until path is calculated
+        while (!_thisAgent.hasPath)
+        {
+            yield return null;
+        }
+
+        // While in chase state
+        while (ActiveState == AiState.CHASE)
+        {
+            if (_thisAgent.remainingDistance <= _thisAgent.stoppingDistance)
+            {
+                _thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
+                yield return null;
+                ActiveState = AiState.ATTACK;
+                yield break;
+            }
+            yield return null;
+        }
+    }
+
+    public IEnumerator StateAttack()
+    {
+        // Run attack animation
+        _thisAnimator.SetInteger("AnimState", (int) ActiveState);
+
+        //While in attack state
+        while (ActiveState == AiState.ATTACK)
+        {
+            // Look at player
+
+        }
+        yield break;
+    }
+
+    public IEnumerator StateDead()
+    {
+        // Add Body Here
+        yield break;
+    }
 
 
-	public AiState ActiveState
-	{
-		get { return _mActivateState; }
-		set
-		{
-			// Stops any running coroutinges, if there are any
-			StopAllCoroutines();
-			_mActivateState = value;
 
-			// Run coroutine associated with active state
-			switch (_mActivateState)
-			{
-				case AiState.IDLE:
-					StartCoroutine(StateIdle());
-					break;
-
-				case AiState.CHASE:
-					StartCoroutine(StateChase());
-					break;
-
-				case AiState.ATTACK:
-					StartCoroutine(StateAttack());
-					break;
-
-				case AiState.DEAD:
-					StartCoroutine(StateDead());
-					break;
-			}
-			// Invoke state change event
-			OnStateChanged.Invoke();
-		}
-	}
-
-	// Events called on FSM changes
-	public IEnumerator StateIdle()
-	{
-		// Add Body Here
-		yield break;
-	}
-
-	public IEnumerator StateChase()
-	{
-		// Add Body Here
-		yield break;
-	}
-
-	public IEnumerator StateAttack()
-	{
-		// Add Body Here
-		yield break;
-	}
-
-	public IEnumerator StateDead()
-	{
-		// Add Body Here
-		yield break;
-	}
-
-
-
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-	}
+    // Use this for initialization
+    void Start ()
+    {
+        
+    }
+    
+    // Update is called once per frame
+    void Update ()
+    {
+        
+    }
 }
