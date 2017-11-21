@@ -40,7 +40,7 @@ public class AIEnemy : MonoBehaviour
     // Reference to Score Text
     private UIScore _scoreText;
 
-    // Player Health Component
+    // Reference to Player Health Component
     private Health _playerHealth;
 
     // Word Associated
@@ -144,16 +144,16 @@ public class AIEnemy : MonoBehaviour
         while (ActiveState == AiState.ATTACK)
         {
             // Look at player
-            Vector3 PlanarPosition = new Vector3(_playerTransform.position.x, _thisTransform.position.y,
+            Vector3 planarPosition = new Vector3(_playerTransform.position.x, _thisTransform.position.y,
                 _playerTransform.position.z);
-            _thisTransform.LookAt(PlanarPosition, _thisTransform.up);
+            _thisTransform.LookAt(planarPosition, _thisTransform.up);
 
             // Get distance between enemy and player
             float distance = Vector3.Distance(_playerTransform.position, _thisTransform.position);
 
             if (distance > _thisAgent.stoppingDistance * 2f)
             {
-                _thisAgent.Stop();
+                _thisAgent.isStopped = true;
                 yield return null;
                 ActiveState = AiState.CHASE;
                 yield break;
@@ -181,4 +181,7 @@ public class AIEnemy : MonoBehaviour
     {
         
     }
+
+    // Deal damage to player
+
 }
