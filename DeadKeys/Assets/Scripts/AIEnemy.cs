@@ -144,9 +144,22 @@ public class AIEnemy : MonoBehaviour
         while (ActiveState == AiState.ATTACK)
         {
             // Look at player
+            Vector3 PlanarPosition = new Vector3(_playerTransform.position.x, _thisTransform.position.y,
+                _playerTransform.position.z);
+            _thisTransform.LookAt(PlanarPosition, _thisTransform.up);
 
+            // Get distance between enemy and player
+            float distance = Vector3.Distance(_playerTransform.position, _thisTransform.position);
+
+            if (distance > _thisAgent.stoppingDistance * 2f)
+            {
+                _thisAgent.Stop();
+                yield return null;
+                ActiveState = AiState.CHASE;
+                yield break;
+            }
+            yield return null;
         }
-        yield break;
     }
 
     public IEnumerator StateDead()
