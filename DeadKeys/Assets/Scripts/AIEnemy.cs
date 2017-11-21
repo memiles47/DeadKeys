@@ -183,5 +183,9 @@ public class AIEnemy : MonoBehaviour
     }
 
     // Deal damage to player
-
+    public void DealDamage()
+    {
+        _playerHealth.Value -= AttackDamage;
+        HitSound.Play();
+    }
 }
