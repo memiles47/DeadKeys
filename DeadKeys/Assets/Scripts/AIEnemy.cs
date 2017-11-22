@@ -164,8 +164,14 @@ public class AIEnemy : MonoBehaviour
 
     public IEnumerator StateDead()
     {
-        // Add Body Here
-        yield break;
+        // Run dead animation
+        _thisAnimator.SetInteger("AnimState", (int) ActiveState);
+
+        //While in dead state
+        while (ActiveState == AiState.DEAD)
+        {
+            yield return null;
+        }
     }
 
 
