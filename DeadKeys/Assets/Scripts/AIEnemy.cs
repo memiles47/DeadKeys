@@ -29,7 +29,7 @@ public class AIEnemy : MonoBehaviour
 
     // Component References
     private Animator _thisAnimator;
-    private UnityEngine.AI.NavMeshAgent _thisAgent;
+    private NavMeshAgent _thisAgent;
     private Transform _thisTransform;
 
     // Reference to player transform
@@ -206,6 +206,28 @@ public class AIEnemy : MonoBehaviour
         }
     }
 
+    public void UpdateTypedWord()
+    {
+        // If not chasing or attacking the ignore
+        if (ActiveState != AiState.CHASE && ActiveState != AiState.ATTACK)
+        {
+            return;
+        }
+
+        MatchedWord = WordList.CompareWords(Typer.TypedWord, AssocWord);
+
+        // Check for typing match
+        if (MatchedWord.Length != AssocWord.Length)
+        {
+            return;
+        }
+
+        if (MatchedWord.Equals(AssocWord))
+        {
+            OnTypingChanged.Invoke(); // Match found. Invoke matched event
+        }
+    }
+
     // Deal damage to player
     public void DealDamage()
     {
@@ -213,7 +235,7 @@ public class AIEnemy : MonoBehaviour
         HitSound.Play();
     }
 
-    private void UpdateText()
+    public void UpdateText()
     {
         // Build UI String
         _nameTextComp.text = "<color=red>" + MatchedWord + "</color>" + AssocWord.Substring(MatchedWord.Length, AssocWord.Length - 
@@ -244,7 +266,10 @@ public class AIEnemy : MonoBehaviour
 
         // Update Navigator
         Navigator.ThisInstance.EnemyDie.Invoke();
+    }
 
-
+    public void WakeUp()
+    {
+        ActiveState = AiState.CHASE;
     }
 }
