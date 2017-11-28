@@ -103,6 +103,12 @@ public class AIEnemy : MonoBehaviour
         _thisAgent = GetComponent<NavMeshAgent>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _playerHealth = _playerTransform.GetComponent<Health>();
+
+        // Find and get associated UI text
+        _nameTextComp = GetComponentInChildren<Text>();
+        _thisTransform = GetComponent<Transform>();
+        HitSound = GetComponent<AudioSource>();
+        _scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<UIScore>();
     }
 
     // Use this for initialization
