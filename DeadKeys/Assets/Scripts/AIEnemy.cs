@@ -47,7 +47,7 @@ public class AIEnemy : MonoBehaviour
     public string AssocWord = string.Empty;
     
     // Extent of word match with associated word
-    public string MachedWord = string.Empty;
+    public string MatchedWord = string.Empty;
 
     // Amount of damage to deal on attack
     public int AttackDamage = 10;
@@ -179,9 +179,15 @@ public class AIEnemy : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        
+        // Set active state
+        ActiveState = _mActivateState;
+
+        // Get random word
+        AssocWord = WordList.ThisInstance.GetRandomWord();
+
+        UpdateText();
     }
-    
+
     // Update is called once per frame
     void Update ()
     {
@@ -193,5 +199,13 @@ public class AIEnemy : MonoBehaviour
     {
         _playerHealth.Value -= AttackDamage;
         HitSound.Play();
+    }
+
+    private void UpdateText()
+    {
+        // Build UI String
+        _nameTextComp.text = "<color=red>" + MatchedWord + "</color>" + AssocWord.Substring(MatchedWord.Length, AssocWord.Length - 
+            MatchedWord.Length);
+
     }
 }
