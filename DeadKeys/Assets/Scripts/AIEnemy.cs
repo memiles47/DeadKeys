@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class AIEnemy : MonoBehaviour
 {
@@ -94,6 +95,34 @@ public class AIEnemy : MonoBehaviour
         }
     }
 
+    // Use this for initialization (instantiated object)
+    void Awake()
+    {
+        // Initialize components
+        _thisAnimator = GetComponent<Animator>();
+        _thisAgent = GetComponent<NavMeshAgent>();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _playerHealth = _playerTransform.GetComponent<Health>();
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        // Set active state
+        ActiveState = _mActivateState;
+
+        // Get random word
+        AssocWord = WordList.ThisInstance.GetRandomWord();
+
+        UpdateText();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     // Events called on FSM changes
     public IEnumerator StateIdle()
     {
@@ -174,25 +203,6 @@ public class AIEnemy : MonoBehaviour
         }
     }
 
-
-
-    // Use this for initialization
-    void Start ()
-    {
-        // Set active state
-        ActiveState = _mActivateState;
-
-        // Get random word
-        AssocWord = WordList.ThisInstance.GetRandomWord();
-
-        UpdateText();
-    }
-
-    // Update is called once per frame
-    void Update ()
-    {
-        
-    }
 
     // Deal damage to player
     public void DealDamage()
