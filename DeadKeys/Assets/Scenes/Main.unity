@@ -3398,7 +3398,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4587291843098102, guid: fa00a31b1a8afcb45b85cd629b40395a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.409
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 4587291843098102, guid: fa00a31b1a8afcb45b85cd629b40395a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3414,7 +3414,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4587291843098102, guid: fa00a31b1a8afcb45b85cd629b40395a, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7347963
       objectReference: {fileID: 0}
     - target: {fileID: 4587291843098102, guid: fa00a31b1a8afcb45b85cd629b40395a, type: 2}
       propertyPath: m_LocalRotation.z
@@ -3422,7 +3422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4587291843098102, guid: fa00a31b1a8afcb45b85cd629b40395a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6782879
       objectReference: {fileID: 0}
     - target: {fileID: 4587291843098102, guid: fa00a31b1a8afcb45b85cd629b40395a, type: 2}
       propertyPath: m_RootOrder
@@ -3974,7 +3974,7 @@ GameObject:
   - component: {fileID: 1774797055}
   m_Layer: 5
   m_Name: Score_Text
-  m_TagString: Untagged
+  m_TagString: ScoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

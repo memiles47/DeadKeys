@@ -110,7 +110,7 @@ public class AIEnemy : MonoBehaviour
         HitSound = GetComponent<AudioSource>();
         _scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<UIScore>();
 
-        //Hide Enemy UItext
+        // Hide Enemy UItext
         _nameTextComp.gameObject.SetActive(false);
     }
 
@@ -124,12 +124,6 @@ public class AIEnemy : MonoBehaviour
         AssocWord = WordList.ThisInstance.GetRandomWord();
 
         UpdateText();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     // Events called on FSM changes
@@ -224,6 +218,33 @@ public class AIEnemy : MonoBehaviour
         // Build UI String
         _nameTextComp.text = "<color=red>" + MatchedWord + "</color>" + AssocWord.Substring(MatchedWord.Length, AssocWord.Length - 
             MatchedWord.Length);
+
+    }
+
+    public void Die()
+    {
+        GameManager.ThisInstance.Score += ScorePoints;
+        _scoreText.OnScoreChange.Invoke();
+
+        // Calculate Bonus, if achieved
+        float lettersPerSecond = AssocWord.Length / Typer.ElapsedTime;
+
+        // If we beat best times, then get bonus
+        if (lettersPerSecond < Typer.RecordLettersPerSecond)
+        {
+            // Bonus achieved
+            ++GameManager.ThisInstance.BonusLevel;
+        }
+
+        ActiveState = AiState.DEAD;
+        --ActiveEnemies;
+
+        // Reset matched word
+        MatchedWord = string.Empty;
+
+        // Update Navigator
+        Navigator.ThisInstance.EnemyDie.Invoke();
+
 
     }
 }
