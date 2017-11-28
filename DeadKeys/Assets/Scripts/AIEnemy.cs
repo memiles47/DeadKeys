@@ -109,6 +109,9 @@ public class AIEnemy : MonoBehaviour
         _thisTransform = GetComponent<Transform>();
         HitSound = GetComponent<AudioSource>();
         _scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<UIScore>();
+
+        //Hide Enemy UItext
+        _nameTextComp.gameObject.SetActive(false);
     }
 
     // Use this for initialization
@@ -208,7 +211,6 @@ public class AIEnemy : MonoBehaviour
             yield return null;
         }
     }
-
 
     // Deal damage to player
     public void DealDamage()
