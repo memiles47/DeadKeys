@@ -156,6 +156,11 @@ public class AIEnemy : MonoBehaviour
         // While in chase state
         while (ActiveState == AiState.CHASE)
         {
+            // Look at player
+            Vector3 planarPosition = new Vector3(_playerTransform.position.x, _thisTransform.position.y,
+                _playerTransform.position.z);
+            _thisTransform.LookAt(planarPosition, _thisTransform.up);
+
             if (_thisAgent.remainingDistance <= _thisAgent.stoppingDistance)
             {
                 _thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
