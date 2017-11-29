@@ -7,7 +7,7 @@ public class GameTrigger : MonoBehaviour
 {
     public UnityEvent OnTriggerEntered;
 
-    void OnTriggerENter(Collider Other)
+    void OnTriggerEnter(Collider Other)
     {
         // If not player then exit
         if (!Other.CompareTag("Player"))
