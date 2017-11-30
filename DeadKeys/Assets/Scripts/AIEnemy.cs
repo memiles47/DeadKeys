@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Xml.Schema;
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -62,6 +63,9 @@ public class AIEnemy : MonoBehaviour
     // Sound to play on hit
     public AudioSource HitSound;
 
+    // Stopping Distance
+    public float stoppingDistance;
+
     public AiState ActiveState
     {
         get { return _mActivateState; }
@@ -103,6 +107,7 @@ public class AIEnemy : MonoBehaviour
         _thisAgent = GetComponent<NavMeshAgent>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _playerHealth = _playerTransform.GetComponent<Health>();
+        stoppingDistance = _thisAgent.stoppingDistance;
 
         // Find and get associated UI text
         _nameTextComp = GetComponentInChildren<Text>();
