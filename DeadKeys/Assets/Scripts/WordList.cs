@@ -10,7 +10,6 @@ namespace Assets.Scripts
 
         private static WordList _mWl;
 
-
         // Members for Singleton
         public static WordList ThisInstance
         {
