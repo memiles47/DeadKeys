@@ -211,7 +211,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 271}
   m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
-  controlID: 35
+  controlID: 75
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -858,10 +858,10 @@ MonoBehaviour:
     width: 235
     height: 250
   m_TreeViewState:
-    scrollPos: {x: 0, y: 199}
-    m_SelectedIDs: 042c0000dc2b0000162b0000342b0000102c0000a22a0000882a00006a2a0000c62a00004c2b0000ee2b0000d02a00009a2b0000
-    m_LastClickedID: 11162
-    m_ExpandedIDs: a6fbffff000000008e2a00006a2b0000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: a6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
