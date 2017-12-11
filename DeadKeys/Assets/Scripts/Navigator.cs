@@ -54,12 +54,12 @@ namespace Assets.Scripts
             ThisInstance = this;
             _thisAnimator = GetComponent<Animator>();
             _navigatorButton = GameObject.FindGameObjectWithTag("NavigatorButton").GetComponent<Button>();
-            _navigatorButton.gameObject.SetActive(false);
+            HideMoveButton();
         }
 
         void Update()
         {
-            ShowMoveButton();
+
         }
 
         public void Next()
@@ -88,6 +88,12 @@ namespace Assets.Scripts
                 return;
 
             _navigatorButton.gameObject.SetActive(true);
+        }
+
+        // Hide navigation button
+        public void HideMoveButton()
+        {
+            _navigatorButton.gameObject.SetActive(false);
         }
     }
 }
