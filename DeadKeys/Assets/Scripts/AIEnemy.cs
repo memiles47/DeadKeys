@@ -175,8 +175,7 @@ public class AIEnemy : MonoBehaviour
 
             if (_thisAgent.remainingDistance <= _thisAgent.stoppingDistance)
             {
-                //_thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
-                _thisAgent.Stop();
+                _thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
                 yield return null;
                 ActiveState = AiState.ATTACK;
                 yield break;
@@ -288,6 +287,7 @@ public class AIEnemy : MonoBehaviour
 
     public void WakeUp()
     {
+        _nameTextComp.gameObject.SetActive(true);
         ActiveState = AiState.CHASE;
     }
 }
