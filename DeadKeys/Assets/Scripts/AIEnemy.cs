@@ -63,8 +63,8 @@ public class AIEnemy : MonoBehaviour
     // Sound to play on hit
     public AudioSource HitSound;
 
-    // Stopping Distance
-    public float stoppingDistance;
+    // Display Remaining Distance
+    public float remainingDistance;
 
     public AiState ActiveState
     {
@@ -107,7 +107,6 @@ public class AIEnemy : MonoBehaviour
         _thisAgent = GetComponent<NavMeshAgent>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _playerHealth = _playerTransform.GetComponent<Health>();
-        stoppingDistance = _thisAgent.stoppingDistance;
 
         // Find and get associated UI text
         _nameTextComp = GetComponentInChildren<Text>();
@@ -131,6 +130,11 @@ public class AIEnemy : MonoBehaviour
         UpdateText();
     }
 
+    void Update()
+    {
+        remainingDistance = _thisAgent.remainingDistance;
+    }
+
     // Events called on FSM changes
     public IEnumerator StateIdle()
     {
@@ -146,6 +150,9 @@ public class AIEnemy : MonoBehaviour
 
     public IEnumerator StateChase()
     {
+        // Increment number of enemies active
+        ++ActiveEnemies;
+
         // Run chase animation
         _thisAnimator.SetInteger("AnimState", (int) ActiveState);
 
@@ -168,7 +175,8 @@ public class AIEnemy : MonoBehaviour
 
             if (_thisAgent.remainingDistance <= _thisAgent.stoppingDistance)
             {
-                _thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
+                //_thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
+                _thisAgent.Stop();
                 yield return null;
                 ActiveState = AiState.ATTACK;
                 yield break;
