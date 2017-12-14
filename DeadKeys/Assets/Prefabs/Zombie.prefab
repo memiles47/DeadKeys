@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 195752719360147030}
   - component: {fileID: 82722265466189906}
   - component: {fileID: 114662123433953548}
-  - component: {fileID: 54140984062536952}
+  - component: {fileID: 54068086728821334}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -751,7 +751,7 @@ Transform:
   m_Father: {fileID: 4514136052519232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54140984062536952
+--- !u!54 &54068086728821334
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

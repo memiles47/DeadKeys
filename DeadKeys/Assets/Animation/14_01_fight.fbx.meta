@@ -151,7 +151,8 @@ ModelImporter:
       - time: 0.030697659
         functionName: DealDamage
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 1944091499674646, guid: fa00a31b1a8afcb45b85cd629b40395a,
+          type: 2}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
