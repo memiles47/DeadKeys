@@ -72,7 +72,6 @@ namespace Assets.Scripts
             // Reset typing
             TypedWord = string.Empty;
 
-
             // Reset time
             ElapsedTime = 0.0f;
         }
