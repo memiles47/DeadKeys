@@ -16,6 +16,7 @@ public class AIEnemy : MonoBehaviour
         DEAD = 3
     };
 
+    //Present to inspector
     [SerializeField] private AiState _mActivateState = AiState.IDLE;
 
     // Events
@@ -127,6 +128,7 @@ public class AIEnemy : MonoBehaviour
 
         UpdateText();
     }
+
 
     void Update()
     {
