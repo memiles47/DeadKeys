@@ -129,7 +129,7 @@ public class AIEnemy : MonoBehaviour
         UpdateText();
     }
 
-
+    //This runs at each frame
     void Update()
     {
         remainingDistance = _thisAgent.remainingDistance;
@@ -150,7 +150,7 @@ public class AIEnemy : MonoBehaviour
 
     public IEnumerator StateChase()
     {
-        // Increment number of enemies active
+        // Increment number of enemies active chasing
         ++ActiveEnemies;
 
         // Run chase animation
