@@ -42,7 +42,6 @@ namespace Assets.Scripts
             }
         }
 
-
         // Use this for initialization
         void Awake()
         {
