@@ -151,7 +151,6 @@ public class AIEnemy : MonoBehaviour
 
     public IEnumerator StateChase()
     {
-        // Increment number of enemies active chasing
         ++ActiveEnemies;
 
         // Run chase animation
