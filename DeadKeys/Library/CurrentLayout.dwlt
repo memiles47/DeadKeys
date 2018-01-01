@@ -89,7 +89,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 471}
   m_MaxSize: {x: 18004, y: 14021}
   vertical: 0
-  controlID: 11
+  controlID: 111
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -536,7 +536,7 @@ MonoBehaviour:
     width: 367
     height: 926
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 348.95508}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 251
@@ -653,18 +653,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 36290000ba2700000000000032280000c6290000d206fdff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: AIEnemy
-      m_OriginalName: AIEnemy
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1902
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -860,8 +860,8 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 12070000
-    m_LastClickedID: 0
+    m_SelectedIDs: e22a0000
+    m_LastClickedID: 10978
     m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

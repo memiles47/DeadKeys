@@ -57,7 +57,7 @@ public class AIEnemy : MonoBehaviour
     private Text _nameTextComp;
 
     // Acitve enemy count (how many enemies wandering at one time)
-    public static int ActiveEnemies;
+    public int ActiveEnemies;
 
     // Sound to play on hit
     public AudioSource HitSound;
