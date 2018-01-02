@@ -15,7 +15,7 @@ public class UIScore : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
 	{
-		_thisText = GetComponent<Text>();
+	    _thisText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame

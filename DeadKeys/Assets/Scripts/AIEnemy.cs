@@ -65,6 +65,8 @@ public class AIEnemy : MonoBehaviour
     // Display Remaining Distance
     public float remainingDistance;
 
+    private Typer _thisTyper;
+
     public AiState ActiveState
     {
         get { return _mActivateState; }
@@ -105,7 +107,7 @@ public class AIEnemy : MonoBehaviour
         _thisAnimator = GetComponent<Animator>();
         _thisAgent = GetComponent<NavMeshAgent>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        _playerHealth = _playerTransform.GetComponent<Health>();
+        _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
 
         // Find and get associated UI text
         _nameTextComp = GetComponentInChildren<Text>();

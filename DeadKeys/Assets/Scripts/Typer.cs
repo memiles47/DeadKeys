@@ -8,7 +8,7 @@ namespace Assets.Scripts
     public class Typer : MonoBehaviour
     {
         // Reference to type word
-        public string TypedWord = string.Empty;
+        public static string TypedWord = string.Empty;
 
         // Reference to all enemies in level
         private AIEnemy[] Enemies;

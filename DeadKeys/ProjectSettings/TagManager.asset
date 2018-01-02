@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NavigatorButton
   - ScoreText
+  - typer
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,9 @@ namespace Assets.Scripts
 
         private static Navigator _mThisInstance;
 
+        // _thisTyper Created to have TypedWord visible in the inspector
+        private Typer _thisTyper;
+
         // Reference to singleton instance
         public static Navigator ThisInstance
         {
@@ -55,6 +58,9 @@ namespace Assets.Scripts
             _thisAnimator = GetComponent<Animator>();
             _navigatorButton = GameObject.FindGameObjectWithTag("NavigatorButton").GetComponent<Button>();
             HideMoveButton();
+
+            // Getting referecne to the Typer Object to display TypedWord in the inspector
+            _thisTyper = GameObject.FindGameObjectWithTag("typer").GetComponent<Typer>();
         }
 
         void Update()
