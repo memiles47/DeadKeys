@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.AI;
@@ -10,14 +9,14 @@ public class AIEnemy : MonoBehaviour
 {
     public enum AiState
     {
-        IDLE = 0,
-        CHASE = 1,
-        ATTACK = 2,
-        DEAD = 3
+        Idle = 0,
+        Chase = 1,
+        Attack = 2,
+        Dead = 3
     };
 
     //Present to inspector
-    [SerializeField] private AiState _mActivateState = AiState.IDLE;
+    [SerializeField] private AiState _mActivateState = AiState.Idle;
 
     // Events
     public UnityEvent OnStateChanged;
@@ -44,6 +43,8 @@ public class AIEnemy : MonoBehaviour
     // Reference to Player Health Component
     private Health _playerHealth;
 
+    public float PlyrHealth;
+
     // Word Associated
     public string AssocWord = string.Empty;
     
@@ -63,9 +64,7 @@ public class AIEnemy : MonoBehaviour
     public AudioSource HitSound;
 
     // Display Remaining Distance
-    public float remainingDistance;
-
-    private Typer _thisTyper;
+    public float RemainingDistance;
 
     public AiState ActiveState
     {
@@ -79,19 +78,19 @@ public class AIEnemy : MonoBehaviour
             // Run coroutine associated with active state
             switch (_mActivateState)
             {
-                case AiState.IDLE:
+                case AiState.Idle:
                     StartCoroutine(StateIdle());
                     break;
 
-                case AiState.CHASE:
+                case AiState.Chase:
                     StartCoroutine(StateChase());
                     break;
 
-                case AiState.ATTACK:
+                case AiState.Attack:
                     StartCoroutine(StateAttack());
                     break;
 
-                case AiState.DEAD:
+                case AiState.Dead:
                     StartCoroutine(StateDead());
                     break;
             }
@@ -135,7 +134,7 @@ public class AIEnemy : MonoBehaviour
     void Update()
     {
         // Displays Distance remaing to enemy in inspector
-        remainingDistance = _thisAgent.remainingDistance;
+        RemainingDistance = _thisAgent.remainingDistance;
     }
 
     // Events called on FSM changes
@@ -145,7 +144,7 @@ public class AIEnemy : MonoBehaviour
         _thisAnimator.SetInteger("AnimState", (int) ActiveState);
 
         // While in idle state
-        while (ActiveState == AiState.IDLE)
+        while (ActiveState == AiState.Idle)
         {
             yield return null;
         }
@@ -168,7 +167,7 @@ public class AIEnemy : MonoBehaviour
         }
 
         // While in chase state
-        while (ActiveState == AiState.CHASE)
+        while (ActiveState == AiState.Chase)
         {
             // Look at player
             Vector3 planarPosition = new Vector3(_playerTransform.position.x, _thisTransform.position.y,
@@ -179,7 +178,7 @@ public class AIEnemy : MonoBehaviour
             {
                 _thisAgent.isStopped = true; // .Stop is obsolete, use .isStopped = true
                 yield return null;
-                ActiveState = AiState.ATTACK;
+                ActiveState = AiState.Attack;
                 yield break;
             }
             yield return null;
@@ -192,7 +191,7 @@ public class AIEnemy : MonoBehaviour
         _thisAnimator.SetInteger("AnimState", (int) ActiveState);
 
         //While in attack state
-        while (ActiveState == AiState.ATTACK)
+        while (ActiveState == AiState.Attack)
         {
             // Look at player
             Vector3 planarPosition = new Vector3(_playerTransform.position.x, _thisTransform.position.y,
@@ -206,7 +205,7 @@ public class AIEnemy : MonoBehaviour
             {
                 _thisAgent.isStopped = true;
                 yield return null;
-                ActiveState = AiState.CHASE;
+                ActiveState = AiState.Chase;
                 yield break;
             }
             yield return null;
@@ -219,7 +218,7 @@ public class AIEnemy : MonoBehaviour
         _thisAnimator.SetInteger("AnimState", (int) ActiveState);
 
         //While in dead state
-        while (ActiveState == AiState.DEAD)
+        while (ActiveState == AiState.Dead)
         {
             yield return null;
         }
@@ -228,7 +227,7 @@ public class AIEnemy : MonoBehaviour
     public void UpdateTypedWord()
     {
         // If not chasing or attacking the ignore
-        if (ActiveState != AiState.CHASE && ActiveState != AiState.ATTACK)
+        if (ActiveState != AiState.Chase && ActiveState != AiState.Attack)
         {
             return;
         }
@@ -277,7 +276,7 @@ public class AIEnemy : MonoBehaviour
             ++GameManager.ThisInstance.BonusLevel;
         }
 
-        ActiveState = AiState.DEAD;
+        ActiveState = AiState.Dead;
         --ActiveEnemies;
 
         // Reset matched word
@@ -290,6 +289,6 @@ public class AIEnemy : MonoBehaviour
     public void WakeUp()
     {
         _nameTextComp.gameObject.SetActive(true);
-        ActiveState = AiState.CHASE;
+        ActiveState = AiState.Chase;
     }
 }
