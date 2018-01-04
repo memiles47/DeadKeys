@@ -258,7 +258,6 @@ public class AIEnemy : MonoBehaviour
         // Build UI String
         _nameTextComp.text = "<color=red>" + MatchedWord + "</color>" + AssocWord.Substring(MatchedWord.Length, AssocWord.Length - 
             MatchedWord.Length);
-
     }
 
     public void Die()
