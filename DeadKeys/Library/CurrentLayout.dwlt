@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1440
     height: 886
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 521}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
