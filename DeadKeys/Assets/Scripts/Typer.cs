@@ -14,10 +14,10 @@ namespace Assets.Scripts
         private AIEnemy[] Enemies;
 
         // Text object for showing type
-        private Text _typerText;
+        public Text _typerText;
 
         // Reference to audio source component
-        private AudioSource _thisAs;
+        public AudioSource _thisAs;
 
         // Typing changed event
         public UnityEvent OnTypingChanged;
