@@ -31,7 +31,6 @@ namespace Assets.Scripts
         // Collection of combat sounds
         public AudioClip[] CombatSounds;
 
-        // Use this for initialization
         void Awake()
         {
             // Get audio source
@@ -41,7 +40,6 @@ namespace Assets.Scripts
             _typerText = GetComponentInChildren<Text>();
         }
 
-        // This is called once per frame
         void Update()
         {
             // Update Time
