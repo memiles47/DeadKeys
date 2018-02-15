@@ -65,7 +65,6 @@ namespace Assets.Scripts
 
         void Update()
         {
-            //Update does not appear to be used
         }
 
         public void Next()
