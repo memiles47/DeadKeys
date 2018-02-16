@@ -99,8 +99,7 @@ public class AIEnemy : MonoBehaviour
         }
     }
 
-    // Use this for initialization (instantiated object)
-    void Awake()
+    public void Awake()
     {
         // Initialize components
         _thisAnimator = GetComponent<Animator>();
@@ -118,8 +117,7 @@ public class AIEnemy : MonoBehaviour
         _nameTextComp.gameObject.SetActive(false);
     }
 
-    // Use this for initialization
-    void Start()
+    public void Start()
     {
         // Set active state
         ActiveState = _mActivateState;
