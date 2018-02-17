@@ -42,8 +42,7 @@ namespace Assets.Scripts
             }
         }
 
-        // Use this for initialization
-        void Awake()
+        public void Awake()
         {
             // Set singleton instance
             ThisInstance = this;
