@@ -12,13 +12,11 @@ public class UIScore : MonoBehaviour
 
 	public UnityEvent OnScoreChange;
 
-	// Use this for initialization
 	void Awake ()
 	{
 	    _thisText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
 		DisplayScore = Mathf.Lerp(DisplayScore, GameManager.ThisInstance.Score, CatchUpSpeed = Time.deltaTime);
