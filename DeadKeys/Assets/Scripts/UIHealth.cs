@@ -7,8 +7,7 @@ namespace Assets.Scripts
         private Health _playerHealth;
         private RectTransform _thisTransform;
 
-        // Use this for initialization
-        void Awake()
+        public void Awake()
         {
             var go = GameObject.FindGameObjectWithTag("Player");
             _playerHealth = go.GetComponent<Health>();
