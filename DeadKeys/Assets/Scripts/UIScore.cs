@@ -12,12 +12,12 @@ public class UIScore : MonoBehaviour
 
 	public UnityEvent OnScoreChange;
 
-	void Awake ()
+	public void Awake ()
 	{
 	    _thisText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
 	}
 	
-	void Update ()
+	public void Update ()
 	{
 		DisplayScore = Mathf.Lerp(DisplayScore, GameManager.ThisInstance.Score, CatchUpSpeed = Time.deltaTime);
 		_thisText.text = "Score: " + Mathf.CeilToInt(DisplayScore).ToString("D6");
