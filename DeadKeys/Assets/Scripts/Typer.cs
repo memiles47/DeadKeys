@@ -31,7 +31,7 @@ namespace Assets.Scripts
         // Collection of combat sounds
         public AudioClip[] CombatSounds;
 
-        void Awake()
+        public void Awake()
         {
             // Get audio source
             _thisAs = GetComponent<AudioSource>();
@@ -40,7 +40,7 @@ namespace Assets.Scripts
             _typerText = GetComponentInChildren<Text>();
         }
 
-        void Update()
+        public void Update()
         {
             // Update Time
             ElapsedTime += Time.deltaTime;
@@ -54,7 +54,7 @@ namespace Assets.Scripts
         }
 
         // Update enemy type event
-        private void UpdateTyping()
+        public private void UpdateTyping()
         {
             UpdateTyperText();
 
