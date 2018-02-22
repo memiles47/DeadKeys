@@ -52,7 +52,7 @@ namespace Assets.Scripts
             }
         }
 
-        void Awake()
+        public void Awake()
         {
             ThisInstance = this;
             _thisAnimator = GetComponent<Animator>();
@@ -63,7 +63,7 @@ namespace Assets.Scripts
             _thisTyper = GameObject.FindGameObjectWithTag("typer").GetComponent<Typer>();
         }
 
-        void Update()
+        public void Update()
         {
         }
 

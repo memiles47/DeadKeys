@@ -54,7 +54,7 @@ namespace Assets.Scripts
         }
 
         // Update enemy type event
-        public private void UpdateTyping()
+        private void UpdateTyping()
         {
             UpdateTyperText();
 
