@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Use this to initialize
-    void Awake()
+    public void Awake()
     {
         ThisInstance = this;
     }
