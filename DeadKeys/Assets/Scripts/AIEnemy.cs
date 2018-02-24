@@ -129,7 +129,7 @@ public class AIEnemy : MonoBehaviour
     }
 
     //This runs at each frame
-    void Update()
+    public void Update()
     {
         // Displays Distance remaing to enemy in inspector
         RemainingDistance = _thisAgent.remainingDistance;
