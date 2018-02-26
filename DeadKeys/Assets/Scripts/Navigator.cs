@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+//using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
 namespace Assets.Scripts
@@ -63,9 +63,9 @@ namespace Assets.Scripts
             _thisTyper = GameObject.FindGameObjectWithTag("typer").GetComponent<Typer>();
         }
 
-        public void Update()
-        {
-        }
+        //public void Update()
+        //{
+        //}
 
         public void Next()
         {
