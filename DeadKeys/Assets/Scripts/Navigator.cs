@@ -69,8 +69,9 @@ namespace Assets.Scripts
 
         public void Next()
         {
+            ResetTyping();
             // Reset typing
-            Typer.TypedWord = string.Empty;
+            //Typer.TypedWord = string.Empty;
 
             ++CurrentNode;
             _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
@@ -78,8 +79,10 @@ namespace Assets.Scripts
 
         public void Prev()
         {
+
+            ResetTyping();
             // Reset typing
-            Typer.TypedWord = string.Empty;
+            //Typer.TypedWord = string.Empty;
 
             --CurrentNode;
             _thisAnimator.SetInteger(AnimStateHash, CurrentNode);
@@ -99,6 +102,12 @@ namespace Assets.Scripts
         public void HideMoveButton()
         {
             _navigatorButton.gameObject.SetActive(false);
+        }
+
+        // Method to reset typing
+        public void ResetTyping()
+        {
+            Typer.TypedWord = string.Empty;
         }
     }
 }
