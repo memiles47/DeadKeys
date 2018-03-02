@@ -5,13 +5,11 @@ public class UIBonus : MonoBehaviour
 {
 	public GameObject[] BonusObjects;
 
-	// Use this for initialization
 	void Awake ()
 	{
 		BonusObjects = GameObject.FindGameObjectsWithTag("BonusObject");
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
 		// Set bonus level
