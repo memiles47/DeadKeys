@@ -5,7 +5,7 @@ public class UIBonus : MonoBehaviour
 {
 	public GameObject[] BonusObjects;
 
-	void Awake ()
+	public void Awake ()
 	{
 		BonusObjects = GameObject.FindGameObjectsWithTag("BonusObject");
 	}

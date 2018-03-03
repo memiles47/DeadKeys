@@ -128,7 +128,6 @@ public class AIEnemy : MonoBehaviour
         UpdateText();
     }
 
-    //This runs at each frame
     public void Update()
     {
         // Displays Distance remaing to enemy in inspector
