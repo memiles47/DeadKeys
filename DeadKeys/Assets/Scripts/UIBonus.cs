@@ -10,7 +10,7 @@ public class UIBonus : MonoBehaviour
 		BonusObjects = GameObject.FindGameObjectsWithTag("BonusObject");
 	}
 	
-	void Update ()
+	public void Update ()
 	{
 		// Set bonus level
 		// Hide/Show all bonus objects
