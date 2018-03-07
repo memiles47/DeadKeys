@@ -80,8 +80,6 @@ namespace Assets.Scripts
                 }
                 result += s1[i];
             }
-
-            // Output result
             return result;
         }
     }
