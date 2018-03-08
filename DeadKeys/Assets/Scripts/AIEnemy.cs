@@ -38,7 +38,7 @@ public class AIEnemy : MonoBehaviour
     public int ScorePoints = 10;
 
     // Reference to Score Text
-    private UIScore _scoreText;
+    private UiScore _scoreText;
 
     // Reference to Player Health Component
     private Health _playerHealth;
@@ -111,7 +111,7 @@ public class AIEnemy : MonoBehaviour
         _nameTextComp = GetComponentInChildren<Text>();
         _thisTransform = GetComponent<Transform>();
         HitSound = GetComponent<AudioSource>();
-        _scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<UIScore>();
+        _scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<UiScore>();
 
         // Hide Enemy UItext
         _nameTextComp.gameObject.SetActive(false);

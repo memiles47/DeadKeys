@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class UIScore : MonoBehaviour
+namespace Assets.Scripts
 {
-	public float DisplayScore;
-	private Text _thisText;
-	public float CatchUpSpeed = 1.0f;
+    public class UiScore : MonoBehaviour
+    {
+        public float DisplayScore;
+        private Text _thisText;
+        public float CatchUpSpeed = 1.0f;
 
-	public UnityEvent OnScoreChange;
+        public UnityEvent OnScoreChange;
 
-	public void Awake ()
-	{
-	    _thisText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
-	}
+        public void Awake ()
+        {
+            _thisText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
+        }
 	
-	public void Update ()
-	{
-		DisplayScore = Mathf.Lerp(DisplayScore, GameManager.ThisInstance.Score, CatchUpSpeed = Time.deltaTime);
-		_thisText.text = "Score: " + Mathf.CeilToInt(DisplayScore).ToString("D6");
-	}
+        public void Update ()
+        {
+            DisplayScore = Mathf.Lerp(DisplayScore, GameManager.ThisInstance.Score, CatchUpSpeed = Time.deltaTime);
+            _thisText.text = "Score: " + Mathf.CeilToInt(DisplayScore).ToString("D6");
+        }
+    }
 }
