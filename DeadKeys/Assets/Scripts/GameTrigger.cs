@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class GameTrigger : MonoBehaviour
+namespace Assets.Scripts
 {
-    public UnityEvent OnTriggerEntered;
-
-    public void OnTriggerEnter(Collider other)
+    public class GameTrigger : MonoBehaviour
     {
-        // If not player then exit
-        if (!other.CompareTag("Player"))
-        {
-            return;
-        }
+        public UnityEvent OnTriggerEntered;
 
-        OnTriggerEntered.Invoke();
+        public void OnTriggerEnter(Collider other)
+        {
+            // If not player then exit
+            if (!other.CompareTag("Player"))
+            {
+                return;
+            }
+
+            OnTriggerEntered.Invoke();
+        }
     }
 }

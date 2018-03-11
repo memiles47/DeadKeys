@@ -11,7 +11,7 @@ namespace Assets.Scripts
         public static string TypedWord = string.Empty;
 
         // Reference to all enemies in level
-        private AIEnemy[] Enemies;
+        private AiEnemy[] Enemies;
 
         // Text object for showing type
         public Text _typerText;
